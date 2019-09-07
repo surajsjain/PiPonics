@@ -12,10 +12,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 GPIO.setup(waterSensor, GPIO.OUT)
-GPIO.setup(soil, GPIO.OUT)
+# GPIO.setup(soil, GPIO.OUT)
 
 GPIO.output(waterSensor, GPIO.LOW)
-GPIO.output(soil, GPIO.LOW)
+# GPIO.output(soil, GPIO.LOW)
 
 time.sleep(0.05)
 
