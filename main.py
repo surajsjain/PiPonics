@@ -10,3 +10,7 @@ print(str(getTemp()))
 print(str(getHum()))
 
 lightOn()
+motorOn()
+time.sleep(10)
+lightOff()
+motorOff()
