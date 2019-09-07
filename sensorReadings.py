@@ -4,7 +4,9 @@ import Adafruit_DHT
 
 waterSensor = 4
 soil = 21
-dht = 26
+dht = 17
+sensor=Adafruit_DHT.DHT11
+
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -40,9 +42,9 @@ def getSoilMoisture():
         return False
 
 def getTemp():
-    humidity, temperature = Adafruit_DHT.read_retry(11, 4)
+    humidity, temperature = Adafruit_DHT.read_retry(sensor, dht)
     return temperature
 
 def getHum():
-    humidity, temperature = Adafruit_DHT.read_retry(11, 4)
+    humidity, temperature = Adafruit_DHT.read_retry(sensor, dht)
     return humidity
