@@ -30,7 +30,7 @@ def getWaterLevel():
 
 def getSoilMoisture():
     condition = GPIO.input(soil)
-    
+
     if(condition == 1):
         return True
 
