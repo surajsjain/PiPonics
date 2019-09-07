@@ -3,7 +3,7 @@ import time
 import Adafruit_DHT
 
 waterSensor = 4
-soil = 21
+soil = 27
 dht = 17
 sensor=Adafruit_DHT.DHT11
 
