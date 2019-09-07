@@ -5,3 +5,5 @@ from sensorReadings import *
 
 print(str(getWaterLevel()))
 print(str(getSoilMoisture()))
+print(str(getTemp()))
+print(str(getHum()))
