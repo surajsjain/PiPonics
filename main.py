@@ -75,7 +75,7 @@ def updateInFocus():
         "temperature": temperature,
         "humidity": humidity,
         "soilMoisture": soilMoisture,
-        "diseased": false
+        "diseased": False
     }
 
     url = 'https://speeve-ponics.herokuapp.com/conditions/infocus/'+str(plantID)
@@ -98,7 +98,7 @@ def updateData(): ## Onli on thr 15th min
             "temperature": temperature,
             "humidity": humidity,
             "soilMoisture": soilMoisture,
-            "diseased": false
+            "diseased": False
         }
 
         url = 'https://speeve-ponics.herokuapp.com/conditions/plant'
