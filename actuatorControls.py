@@ -27,7 +27,7 @@ def motorOn():
 
     r = requests.post(waterUrl, data)
 
-def motorOff(condition):
+def motorOff(condition = ''):
     if condition is "initial":
         GPIO.output(motor, False)
     else:
