@@ -36,28 +36,32 @@ punchTime = {
 
 def checkActuateConditions():
     url = 'https://speeve-ponics.herokuapp.com/conditions/actuate/1'
-    r = requests.get(url)
-    data = r.json()
-    global motor
-    global light
+    try:
+        r = requests.get(url)
+        data = r.json()
+        global motor
+        global light
 
-    if((data['water'] == False) and (motor == True)):
-        motorOff()
-        motor = False
+        if((data['water'] == False) and (motor == True)):
+            motorOff()
+            motor = False
 
-    if((data['water'] == True) and (motor == False)):
-        motorOn()
-        motor = True
+        if((data['water'] == True) and (motor == False)):
+            motorOn()
+            motor = True
 
-    if((data['light'] == False) and (light == True)):
-        lightOff()
-        light = False
+        if((data['light'] == False) and (light == True)):
+            lightOff()
+            light = False
 
-    if((data['light'] == True) and (light == False)):
-        lightOn()
-        light = True
+        if((data['light'] == True) and (light == False)):
+            lightOn()
+            light = True
 
-    manual = data['manual']
+        manual = data['manual']
+
+    except:
+        print('Internet connection not available')
 
 def updateInFocus():
     global plantID
@@ -81,6 +85,7 @@ def updateInFocus():
     url = 'https://speeve-ponics.herokuapp.com/conditions/infocus/'+str(plantID)
 
     r = requests.post(url, data)
+    print(r.status_code)
 
 
 def updateData(): ## Onli on thr 15th min
@@ -104,6 +109,7 @@ def updateData(): ## Onli on thr 15th min
         url = 'https://speeve-ponics.herokuapp.com/conditions/plant'
 
         r = requests.post(url, data)
+        print(r.status_code)
 
 
 def actoControls():
