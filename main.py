@@ -78,11 +78,11 @@ def updateInFocus():
     data = {
         "temperature": temperature,
         "humidity": humidity,
-        "soilMoisture": soilMoisture,
+        "soilMoisture": sm,
         "diseased": False
     }
 
-    url = 'https://speeve-ponics.herokuapp.com/conditions/infocus/'+str(plantID)
+    url = 'https://speeve-ponics.herokuapp.com/conditions/infocus/1'
 
     r = requests.post(url, data)
     print(r.status_code)
@@ -97,12 +97,17 @@ def updateData(): ## Onli on thr 15th min
         humidity =getHum()
         soilMoisture = getSoilMoisture()
 
+        if(soilMoisture == True):
+            sm = 100
+        else:
+            sm = 0
+
         data = {
             "timestamp": dt,
             "plant": 1,
             "temperature": temperature,
             "humidity": humidity,
-            "soilMoisture": soilMoisture,
+            "soilMoisture": sm,
             "diseased": False
         }
 
