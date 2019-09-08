@@ -38,6 +38,8 @@ def checkActuateConditions():
     url = 'https://speeve-ponics.herokuapp.com/conditions/actuate/1'
     r = requests.get(url)
     data = r.json()
+    global motor
+    global light
 
     if((data['water'] == False) and (motor == True)):
         motorOff()
@@ -58,7 +60,8 @@ def checkActuateConditions():
     manual = data['manual']
 
 def updateInFocus():
-    # pass
+    global plantID
+
     temperature = getTemp()
     humidity = getHum()
     soilMoisture = getSoilMoisture()
@@ -104,6 +107,9 @@ def updateData(): ## Onli on thr 15th min
 
 
 def actoControls():
+    global motor
+    global punchTime
+
     sm = getSoilMoisture()
 
     dt = datetime.now()
